@@ -114,14 +114,27 @@ def start():
             steps += 1
             path.append((node.i, node.j))
             node = node.parent
+        for i in range(10):
+            for j in range(10):
+                if matrix[i][j].value == 0:
+                    print(Fore.RESET, matrix[i][j].value, end=" ")
+                else:
+                    print(Fore.RED, matrix[i][j].value, end=" ")
+            print("\n")
+        print("\n")
+        print("\n")
+        print("\n")
         print("order:", order)
         print("steps:", steps)
         for i in range(10):
             for j in range(10):
-                if path.count((i, j)) == 0:
-                    print(Fore.RESET, matrix[i][j].value, end=" ")
-                else:
+                if path.count((i, j)) != 0:
                     print(Fore.GREEN, matrix[i][j].value, end=" ")
+                elif matrix[i][j].value == 0:
+                    print(Fore.RESET, matrix[i][j].value, end=" ")
+                elif matrix[i][j].value != 0:
+                    print(Fore.RED, matrix[i][j].value, end=" ")
+
             print("\n")
     else:
         print(Fore.RED + "no solution")
